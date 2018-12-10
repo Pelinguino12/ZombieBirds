@@ -21,7 +21,9 @@ public class Columna : MonoBehaviour
     {
         if (GameConfig.IsPlaying())
         {
+            //MOVER COLUMNAS
             transform.Translate(Vector3.left * Time.deltaTime * speed);
+            //DESTRUIR COLUMNAS
             if (transform.position.x < -25)
             {
                 Destroy(gameObject);

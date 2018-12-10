@@ -26,10 +26,25 @@ public class PajaroZombie : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        //ESPACIO PARA SALTAR
         if (Input.GetKeyDown("space"))
         {
             //SALTOS PAJARO
             rb.AddForce(transform.up * force);
+        }
+        //MUERE SI SALE DE PANTALLA
+        if (transform.position.y < -8 || transform.position.y > 8)
+        {
+            // PARAR JUEGO
+            GameConfig.PararJuego();
+            //SINIDO PAJARO MUERTO
+            sonidoExplosion.Play();
+            // PARTICULAS EXPLOSION
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            // DESTRUIR PAJARO
+            gameObject.SetActive(false);
+            // FINALIZAR PARTIDA
+            Invoke("FinalizarPartida", 3.0f);
         }
     }   
 
