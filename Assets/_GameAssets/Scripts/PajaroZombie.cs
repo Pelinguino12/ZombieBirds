@@ -51,6 +51,7 @@ public class PajaroZombie : MonoBehaviour {
     void OnTriggerEnter(Collider detector){
         //SUMAR PUNTOS
         puntos = puntos + 1;
+        GameController.StorePuntos(puntos);
         ActualizarPuntuacion();
         //SONIDO PUNTO SUMADO
         sonidoPuntuacion.Play();
@@ -74,7 +75,7 @@ public class PajaroZombie : MonoBehaviour {
         gameObject.SetActive(false);
         // FINALIZAR PARTIDA
         Invoke("FinalizarPartida",3.0f);
-    }
+   }
     void FinalizarPartida()
     {
         // REINICIAR
