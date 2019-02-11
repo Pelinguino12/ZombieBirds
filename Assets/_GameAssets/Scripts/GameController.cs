@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class GameController : MonoBehaviour
 {
     private const string SCORE = "score";
@@ -18,11 +17,10 @@ public class GameController : MonoBehaviour
 
     public static void StorePuntos(int score)
     {
-        PlayerPrefs.SetInt(SCORE, score);
-        PlayerPrefs.Save();
-    }
-    public static int GetHighScore()
-    {
-
+        if (PlayerPrefs.GetInt(SCORE) < score ) 
+        {
+            PlayerPrefs.SetInt(SCORE, score);
+            PlayerPrefs.Save();
+        }
     }
 }
