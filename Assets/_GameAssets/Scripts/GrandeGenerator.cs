@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrandeGenerator : MonoBehaviour {
+    
     [SerializeField] Transform prefabGrande;
     [SerializeField] float comienzo = 4.0f;
     [SerializeField] float crear = 4.0f;

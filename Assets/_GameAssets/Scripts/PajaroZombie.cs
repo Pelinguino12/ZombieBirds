@@ -13,6 +13,15 @@ public class PajaroZombie : MonoBehaviour {
     [SerializeField] ParticleSystem explosion;
     [SerializeField] AudioSource sonidoExplosion;
     [SerializeField] AudioSource sonidoPuntuacion;
+
+    float maxSpeed = 3;
+	float minSpeed= 2;
+    public float elegirVelocidad;
+
+    void Awake() {
+        //VELOCIDAD DE APLASTADORAS
+        elegirVelocidad = Random.Range (minSpeed , maxSpeed);
+    }
     
     // Use this for initialization
     void Start () {
@@ -22,6 +31,7 @@ public class PajaroZombie : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         //PUNTOS A 0
         ActualizarPuntuacion();
+       
     }
 
     // Update is called once per frame
@@ -63,7 +73,7 @@ public class PajaroZombie : MonoBehaviour {
         puntuacion.text = "Puntuación: " + puntos;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision columna)
     {
         // PARAR JUEGO
         GameConfig.PararJuego();

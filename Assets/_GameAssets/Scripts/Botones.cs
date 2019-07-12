@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class Botones : MonoBehaviour {
     [SerializeField] Text highscore;
     //START PULSADO
+    private void Start() 
+    {
+        // HACER BOTON RESET EN UN FUTURO-----> PlayerPrefs.DeleteAll();
+        NuevoHighscore();
+    }
     public void Empezar()
     {
         SceneManager.LoadScene(1);
